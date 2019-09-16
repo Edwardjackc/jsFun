@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const chai = require("chai")
 const expect = chai.expect;
 const context = require("../context/index");
@@ -68,4 +69,59 @@ describe("CONTEXT", () => {
     const e = "global window object" == context.exerciseP();
     expect(e).withMessage("Your result is not the correct context").to.be.true
   })
+=======
+const { expect } = require('chai');
+const context = require('../context/index');
+
+describe('CONTEXT', () => {
+  it('exerciseA', () => {
+    const result = context.exerciseA();
+    expect(result).to.equal('instance of Ship');
+  });
+
+  it('exerciseB', () => {
+    const result = context.exerciseB();
+    expect(result).to.equal('global window object');
+  });
+
+  it('exerciseC', () => {
+    const result = context.exerciseC();
+    expect(result).to.equal('el');
+  });
+
+  it('exerciseD', () => {
+    const result = context.exerciseD();
+    expect(result).to.equal('global window object');
+  });
+
+  it('exerciseE', () => {
+    const result = context.exerciseE();
+    expect(result).to.equal('global window object');
+  });
+
+  it('exerciseF', () => {
+    const result = context.exerciseF();
+    expect(result).to.equal('instance of Hero');  
+  });
+
+  it('exerciseG', () => {
+    const result = context.exerciseG();
+    expect(result).to.equal('global window object');
+  });
+
+  it('exerciseH', () => {
+    const result = context.exerciseH();
+    expect(result).to.equal('obj');
+  });
+
+  it('exerciseI', () => {
+    const result = context.exerciseI();
+    expect(result).to.equal('poets');
+  });
+
+  it('exerciseJ', () => {
+    const result = context.exerciseJ();
+    expect(result).to.equal('#btn');
+  });
+>>>>>>> a892def999634487870381704807829908d13bc1
 });

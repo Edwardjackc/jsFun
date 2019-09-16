@@ -1,5 +1,5 @@
-const { kitties } = require('./datasets/kitties');
 const { clubs } = require('./datasets/clubs');
+const { kitties } = require('./datasets/kitties');
 const { mods } = require('./datasets/mods');
 const { cakes } = require('./datasets/cakes');
 const { classrooms } = require('./datasets/classrooms');
@@ -59,11 +59,6 @@ const kittyPrompts = {
     // age plus two in an array.
 }
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
@@ -85,12 +80,24 @@ const clubPrompts = {
     //   Pam: ['Drama', 'Art', 'Chess'],
     //   ...etc
     // }
+    const members = clubs.reduce((acc, club) => {
+      club.members.forEach(member => {
+        if (!acc[member]) {
+          acc[member] = [club.club]
+        } else {
+          acc[member].push(club.club)
+        }
+      })
+      return acc
+    }, {})
+    return members
+  }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+const members = membersBelongingToClubs(clubs)
 
     // Annotation:
-    // Write your annotation here as a comment
+    // using reduce to loop through the clubs  and determine which member is in each club,
+    // then using for each to loop through each club and push each member into the respective member object as an object literal 
   }
 };
 
@@ -667,8 +674,8 @@ const dinosaurPrompts = {
         'Colin Trevorrow': 
           { 
             'Jurassic World': 56
-           },
-        'J. A. Bayona': 
+            'J. A. Bayona': 
+          },
           { 
             'Jurassic World: Fallen Kingdom': 59 
           } 
